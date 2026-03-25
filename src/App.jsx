@@ -7,7 +7,7 @@ import Bottom from "./components/Bottom";
 import MainComponents from "../practice/MainComponents";
 import DemoDynamicContent from "../practice/DemoDynamicContent";
 import Products from "../practice/Products";
-import Recipes from "../practice/recipes";
+import Recipes from "../practice/Recipes";
 function App() {
   return (
     <div>
@@ -22,7 +22,7 @@ function App() {
       {/* <MainComponents /> */}
       {/* <DemoDynamicContent /> */}
       {/* {<Products />} */}
-      { <Recipes /> }
+      <Recipes />
     </div>
   );
 }
