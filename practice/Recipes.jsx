@@ -2,10 +2,40 @@ import RecipesData from "./recipes.json";
 import StarRating from "./StarRating";
 import { Flame, CookingPot, Clock, Utensils } from "lucide-react";
 function Recipes() {
+  function EasyRecipeClick() {
+    alert("easy recipes are here");
+    let EasyRecipe = recipes.filter((recipe) => {
+      return recipe.difficulty === "Easy";
+    });
+    console.log("EasyRecipe", EasyRecipe);
+  }
+  function MediumRecipeClick() {
+    alert("medium recipes are here");
+    let meiumRecipe = recipes.filter((recipe) => {
+      return recipe.difficulty === "Medium";
+    });
+    console.log(meiumRecipe, "meiumRecipe");
+  }
+  
   console.log(RecipesData);
   let recipes = RecipesData.recipes;
   return (
     <div className="bg-slate-50">
+      <div className="flex justify-between px-2 py-1">
+        <button
+          className="bg-amber-200 rounded-xl font-semibold text-gray-400 px-2 "
+          onClick={EasyRecipeClick}
+        >
+          Show easy Recipes
+        </button>
+        <button
+          className="bg-blue-400 rounded-xl font-semibold text-white px-2 "
+          onClick={MediumRecipeClick}
+        >
+          Show medium Recipes
+        </button>
+      </div>
+
       <div className="grid grid-cols-3 gap-4 container mx-auto">
         {recipes.map((recipe, index) => {
           return (

@@ -8,6 +8,7 @@ import MainComponents from "../practice/MainComponents";
 import DemoDynamicContent from "../practice/DemoDynamicContent";
 import Products from "../practice/Products";
 import Recipes from "../practice/Recipes";
+import DestructringArray from "../practice/DestructringArray";
 function App() {
   return (
     <div>
@@ -22,7 +23,8 @@ function App() {
       {/* <MainComponents /> */}
       {/* <DemoDynamicContent /> */}
       {/* {<Products />} */}
-      <Recipes />
+      {/* <Recipes /> */}
+      <DestructringArray/>
     </div>
   );
 }
