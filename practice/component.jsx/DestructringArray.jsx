@@ -1,3 +1,5 @@
+import SearchBar from "./SearchBar";
+import ProductTable from "./ProductTAble";
 function DestructringArray() {
   const fruits = [
     { category: "Fruits", price: "$1", stocked: true, name: "Apple" },
@@ -20,55 +22,13 @@ function DestructringArray() {
   return (
     <div>
       <div className="bg-slate-100 h-max-auto w-auto p-8">
-        <div>
-          <input
-            type="search"
-            placeholder="Search..."
-            className="border border-black mt-2"
-          />
-          <div className="flex gap-2">
-            <input type="checkbox" />
-            <p>Only Show products in stock</p>
-          </div>
-        </div>
-        <div className="border border-black px-2 py-1 w-fit ">
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Price</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <h1 className="font-bold">Fruits</h1>
-                </td>
-              </tr>
-              {fruitCategory.map((fruit, index) => {
-                return (
-                  <tr key={index}>
-                    <td>{fruit.name}</td>
-                    <td>{fruit.price}</td>
-                  </tr>
-                );
-              })}
+        <SearchBar />
 
-              <tr>
-                <td>
-                  <h1 className="font-bold">Vegetable </h1>
-                </td>
-              </tr>
-              {vegetableCategory.map((vegetable, index) => {
-                return (
-                  <tr key={index}>
-                    <td>{vegetable.name}</td>
-                    <td>{vegetable.price}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+        <div className="border border-black px-2 py-1 w-fit ">
+          <ProductTable
+            fruitCategory={fruitCategory}
+            vegetableCategory={vegetableCategory}
+          />
         </div>
       </div>
     </div>

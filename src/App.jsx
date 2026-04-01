@@ -9,6 +9,7 @@ import DemoDynamicContent from "../practice/DemoDynamicContent";
 import Products from "../practice/Products";
 import Recipes from "../practice/Recipes";
 import DestructringArray from "../practice/component.jsx/DestructringArray";
+import LogIn from "../practice/component.jsx/LogIn";
 function App() {
   return (
     <div>
@@ -24,7 +25,8 @@ function App() {
       {/* <DemoDynamicContent /> */}
       {/* {<Products />} */}
       {/* <Recipes /> */}
-      <DestructringArray/>
+      {/* <DestructringArray/> */}
+      <LogIn />
     </div>
   );
 }
