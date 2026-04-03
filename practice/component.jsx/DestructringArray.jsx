@@ -1,5 +1,5 @@
 import SearchBar from "./SearchBar";
-import ProductTable from "./ProductTAble";
+import ProductTable from "./ProductTable";
 function DestructringArray() {
   const fruits = [
     { category: "Fruits", price: "$1", stocked: true, name: "Apple" },
