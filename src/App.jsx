@@ -10,9 +10,11 @@ import Products from "../practice/Products";
 import Recipes from "../practice/Recipes";
 import DestructringArray from "../practice/component.jsx/DestructringArray";
 import LogIn from "../practice/component.jsx/LogIn";
+import Register from "../practice/component.jsx/Register";
+
 function App() {
   return (
-    <div>
+    <div className="flex flex-col gap-8 p-4">
       {/* <div className="flex gap-4">
         <Image />
         <Description />
@@ -26,7 +28,10 @@ function App() {
       {/* {<Products />} */}
       {/* <Recipes /> */}
       {/* <DestructringArray/> */}
-      <LogIn />
+      <div className="flex gap-4">
+        <LogIn />
+        <Register />
+      </div>
     </div>
   );
 }
