@@ -1,24 +1,31 @@
 import RecipesData from "./recipes.json";
 import StarRating from "./StarRating";
 import { Flame, CookingPot, Clock, Utensils } from "lucide-react";
+import { useState } from "react";
 function Recipes() {
+  const [recipes, setRecipes] = useState(RecipesData.recipes);
   function EasyRecipeClick() {
-    alert("easy recipes are here");
-    let EasyRecipe = recipes.filter((recipe) => {
+    let EasyRecipe = RecipesData.recipes.filter((recipe) => {
       return recipe.difficulty === "Easy";
     });
+    setRecipes(EasyRecipe);
     console.log("EasyRecipe", EasyRecipe);
   }
   function MediumRecipeClick() {
-    alert("medium recipes are here");
-    let meiumRecipe = recipes.filter((recipe) => {
+    let meiumRecipe = RecipesData.recipes.filter((recipe) => {
       return recipe.difficulty === "Medium";
     });
+    setRecipes(meiumRecipe);
     console.log(meiumRecipe, "meiumRecipe");
   }
-  
-  console.log(RecipesData);
-  let recipes = RecipesData.recipes;
+  function AllRecipeClick() {
+    let allRecipe = RecipesData.recipes;
+    setRecipes(allRecipe);
+    console.log(allRecipe);
+  }
+
+  //console.log(RecipesData);
+
   return (
     <div className="bg-slate-50">
       <div className="flex justify-between px-2 py-1">
@@ -33,6 +40,12 @@ function Recipes() {
           onClick={MediumRecipeClick}
         >
           Show medium Recipes
+        </button>
+        <button
+          className="bg-green-400 rounded-xl font-semibold text-white px-2 "
+          onClick={AllRecipeClick}
+        >
+          Show All Recipes
         </button>
       </div>
 

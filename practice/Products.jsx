@@ -1,13 +1,90 @@
 import ProductsData from "./products.json";
 import StarRating from "./StarRating";
-
+import { useState } from "react";
 function Products() {
   console.log(ProductsData);
-  let products = ProductsData.products;
-  console.log(products);
+  const [products, setProducts] = useState(ProductsData.products);
+
+  function BeautyButtonClick() {
+    let beautyProducts = ProductsData.products.filter((product) => {
+      return product.category === "beauty";
+    });
+    setProducts(beautyProducts);
+  }
+
+  function GroceryClick() {
+    let groceryProducts = ProductsData.products.filter((product) => {
+      return product.category === "groceries";
+    });
+    setProducts(groceryProducts);
+  }
+  function FurnitureClick() {
+    let furnitureProducts = ProductsData.products.filter((product) => {
+      return product.category === "furniture";
+    });
+    setProducts(furnitureProducts);
+  }
+  function ResetFilters() {
+    let resetFilter = ProductsData.products.filter((product) => {
+      return product.rating <= "3";
+    });
+    setProducts(resetFilter);
+  }
+  function handleSorting(event) {
+    let orderBy = event.target.value;
+    console.log(orderBy);
+    let sortedItems = [...ProductsData.products];
+    if (orderBy === "asc") {
+      sortedItems.sort((a, b) => {
+        return a.price - b.price;
+      });
+      setProducts(sortedItems);
+    } else if (orderBy === "desc") {
+      sortedItems.sort((a, b) => {
+        return b.price - a.price;
+      });
+      setProducts(sortedItems);
+    } else {
+      setProducts(sortedItems);
+    }
+  }
+
   return (
     <div className=" bg-slate-50">
-      <div className="grid grid-cols-4 gap-6 container mx-auto"> 
+      <div className="flex gap-4 justify-between px-2 py-1">
+        <button
+          className="bg-blue-400 rounded-xl px-2 py-1 text-white font-bold"
+          onClick={BeautyButtonClick}
+        >
+          Beauty Products
+        </button>
+        <button
+          className="bg-amber-100 rounded-xl px-2 py-1 text-black font-bold"
+          onClick={FurnitureClick}
+        >
+          furniture
+        </button>
+        <button
+          className="bg-green-400 rounded-xl px-2 py-1 text-purple-500 font-bold"
+          onClick={GroceryClick}
+        >
+          Grocries
+        </button>
+        <button
+          className="bg-green-400 rounded-xl font-semibold text-white px-2 "
+          onClick={ResetFilters}
+        >
+          ResetFilter
+        </button>
+      </div>
+      <div>
+        <select onChange={handleSorting}>
+          <option value={"desc"}>High to Low</option>
+          <option value={"asc"}>Low to High</option>
+          <option value={"none"}>Reset</option>
+        </select>
+      </div>
+      <div className="grid grid-cols-4 gap-6 container mx-auto">
         {products.map((product, index) => {
           return (
             <div
