@@ -23,10 +23,10 @@ function App() {
       </div> */}
       {/* <MainComponents /> */}
       {/* <DemoDynamicContent /> */}
-      <Products />
+      {/* <Products /> */}
       {/* <Recipes /> */}
       {/* <DestructringArray /> */}
-      {/* <LogIn /> */}
+      <LogIn />
     </div>
   );
 }

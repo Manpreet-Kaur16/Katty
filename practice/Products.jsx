@@ -48,7 +48,24 @@ function Products() {
       setProducts(sortedItems);
     }
   }
-
+  function handleSortingRating(event) {
+    let orderBy = event.target.value;
+    console.log(orderBy);
+    let sortedItemsRating = [...ProductsData.products];
+    if (orderBy === "asc") {
+      sortedItemsRating.sort((a, b) => {
+        return a.rating - b.rating;
+      });
+      setProducts(sortedItemsRating);
+    } else if (orderBy === "desc") {
+      sortedItemsRating.sort((a, b) => {
+        return b.rating - a.rating;
+      });
+      setProducts(sortedItemsRating);
+    } else {
+      setProducts(sortedItemsRating);
+    }
+  }
   return (
     <div className=" bg-slate-50">
       <div className="flex gap-4 justify-between px-2 py-1">
@@ -77,12 +94,25 @@ function Products() {
           ResetFilter
         </button>
       </div>
-      <div>
-        <select onChange={handleSorting}>
-          <option value={"desc"}>High to Low</option>
-          <option value={"asc"}>Low to High</option>
-          <option value={"none"}>Reset</option>
-        </select>
+      <div className="flex  justify-between mt-2 px-2">
+        <div className="border border-black">
+          <select onChange={handleSorting}>
+            <option value={"none"}>Price Filter</option>
+            <option value={"desc"}>High to Low</option>
+            <option value={"asc"}>Low to High</option>
+            <option value={"none"}>Reset</option>
+          </select>
+        </div>
+        <div className="border border-black">
+          <select onChange={handleSortingRating}>
+            <option value={"none"} className="bg-amber-100">
+              Select According Rating
+            </option>
+            <option value={"desc"}>Above-3</option>
+            <option value={"asc"}>under-3</option>
+            <option value={"none"}>Reset</option>
+          </select>
+        </div>
       </div>
       <div className="grid grid-cols-4 gap-6 container mx-auto">
         {products.map((product, index) => {
