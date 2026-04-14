@@ -17,9 +17,10 @@ function LogIn() {
   });
 
   const errorHandle = (currentActiveInputField = null) => {
+    console.log(formData, currentActiveInputField, "error handling error");
     let errorMessages = {};
     if (
-      (!formData.username ||
+      (formData.username == "" ||
         formData.username.length < 3 ||
         formData.username.length > 10) &&
       currentActiveInputField == "username"
@@ -30,6 +31,7 @@ function LogIn() {
         ...prev,
         username: errorMessages.username,
       }));
+      return false;
     } else {
       setError((prev) => ({
         ...prev,
@@ -46,6 +48,7 @@ function LogIn() {
         ...prev,
         email: errorMessages.email,
       }));
+      return false;
     } else {
       setError((prev) => ({
         ...prev,
@@ -65,6 +68,7 @@ function LogIn() {
         ...prev,
         password: errorMessages.password,
       }));
+      return false;
     } else {
       setError((prev) => ({
         ...prev,
@@ -78,6 +82,7 @@ function LogIn() {
         ...prev,
         terms: setError.term,
       }));
+      return false;
     } else {
       setError((prev) => ({
         ...prev,
@@ -104,15 +109,20 @@ function LogIn() {
         [name]: checked,
       }));
     }
-    console.log(formData);
+
     errorHandle(name);
   };
 
   function submitClick() {
-    if(formData.username =="" || formData.email=="")
-    alert("login Successfull!!");
-    console.log(formData);
+    console.log(formData, "With in Submit Click function");
+
+    errorHandle("username");
+    errorHandle("email");
+    errorHandle("password");
+    errorHandle("terms");
+    // alert("login Successfull!!");
   }
+  console.log(error, "errors messages here!!");
 
   return (
     <div className="flex flex-col px-4 py-2 w-[500px] bg-slate-50">
