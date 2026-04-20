@@ -10,6 +10,9 @@ import Products from "../practice/Products";
 import Recipes from "../practice/Recipes";
 import DestructringArray from "../practice/component.jsx/DestructringArray";
 import LogIn from "../practice/component.jsx/LogIn";
+import ToDoApp from "../practice/component.jsx/ToDoApp";
+import UseEffectDemo from "../practice/component.jsx/UseEffectDemo";
+
 function App() {
   return (
     <div>
@@ -26,7 +29,9 @@ function App() {
       {/* <Products /> */}
       {/* <Recipes /> */}
       {/* <DestructringArray /> */}
-      <LogIn />
+      {/* <LogIn /> */}
+      {/* <ToDoApp /> */}
+      <UseEffectDemo />
     </div>
   );
 }

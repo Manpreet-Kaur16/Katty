@@ -58,7 +58,7 @@ function LogIn() {
 
     if (
       (!formData.password ||
-        formData.password.length < 6 ||
+        formData.password.length < 5 ||
         formData.password.length > 10) &&
       currentActiveInputField == "password"
     ) {
@@ -80,7 +80,7 @@ function LogIn() {
       errorMessages.terms = "Accept terms first";
       setError((prev) => ({
         ...prev,
-        terms: setError.term,
+        terms: errorMessages.terms,
       }));
       return false;
     } else {
@@ -93,6 +93,42 @@ function LogIn() {
     return errorMessages;
   };
   console.log(error, "error message checked here!!");
+  const validateAllFields = () => {
+    const next = {
+      username: "",
+      email: "",
+      password: "",
+      terms: "",
+    };
+
+    if (
+      formData.username === "" ||
+      formData.username.length < 3 ||
+      formData.username.length > 10
+    ) {
+      next.username =
+        "Username is required and must have at least 4 and maximum 10 characters";
+    }
+
+    if (!formData.email || !formData.email.includes("@")) {
+      next.email = "Enter valid email address including @";
+    }
+
+    if (
+      !formData.password ||
+      formData.password.length < 6 ||
+      formData.password.length > 10
+    ) {
+      next.password = "Enter valid Password... must have 5-10 chracters.";
+    }
+
+    if (!formData.terms) {
+      next.terms = "Accept terms first";
+    }
+
+    setError(next);
+    return next;
+  };
 
   const handleInput = (event) => {
     let name = event.target.name;
@@ -116,11 +152,17 @@ function LogIn() {
   function submitClick() {
     console.log(formData, "With in Submit Click function");
 
-    errorHandle("username");
-    errorHandle("email");
-    errorHandle("password");
-    errorHandle("terms");
-    // alert("login Successfull!!");
+    const nextError = validateAllFields();
+    if (
+      nextError.username == "" &&
+      nextError.email == "" &&
+      nextError.password == "" &&
+      nextError.terms == ""
+    ) {
+      alert("login Successfull!!");
+    } else {
+      alert("There are errors in the form.");
+    }
   }
   console.log(error, "errors messages here!!");
 
