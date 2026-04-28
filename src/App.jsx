@@ -1,17 +1,19 @@
-import Image from "./components/Image";
-import Description from "./components/Description";
-import Badge from "./components/Badges";
-import { Characterstics } from "./components/Characterstics";
-import { Heading, Progress } from "./components/HeadingProgress";
-import Bottom from "./components/Bottom";
-import MainComponents from "../practice/MainComponents";
-import DemoDynamicContent from "../practice/DemoDynamicContent";
-import Products from "../practice/Products";
-import Recipes from "../practice/Recipes";
-import DestructringArray from "../practice/component.jsx/DestructringArray";
-import LogIn from "../practice/component.jsx/LogIn";
-import ToDoApp from "../practice/component.jsx/ToDoApp";
-import UseEffectDemo from "../practice/component.jsx/UseEffectDemo";
+// import Image from "./components/Image";
+// import Description from "./components/Description";
+// import Badge from "./components/Badges";
+// import { Characterstics } from "./components/Characterstics";
+// import { Heading, Progress } from "./components/HeadingProgress";
+// import Bottom from "./components/Bottom";
+// import MainComponents from "../practice/MainComponents";
+// import DemoDynamicContent from "../practice/DemoDynamicContent";
+// import Products from "../practice/Products";
+// import Recipes from "../practice/Recipes";
+// import DestructringArray from "../practice/component.jsx/DestructringArray";
+// import LogIn from "../practice/component.jsx/LogIn";
+import ToDoApp from "../practice/components/ToDoApp";
+// import UseEffectDemo from "../practice/component.jsx/UseEffectDemo";
+// import UseEffectApi from "../practice/component.jsx/Users";
+import Users from "../practice/components/Users";
 
 function App() {
   return (
@@ -31,7 +33,9 @@ function App() {
       {/* <DestructringArray /> */}
       {/* <LogIn /> */}
       {/* <ToDoApp /> */}
-      <UseEffectDemo />
+      {/* <UseEffectDemo /> */}
+      {/* <UseEffectApi /> */}
+      <Users />
     </div>
   );
 }
